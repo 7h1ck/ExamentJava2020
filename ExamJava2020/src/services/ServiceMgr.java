@@ -9,6 +9,7 @@ import dao.EmployeDao;
 import dao.ServiceDao;
 import java.util.List;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import models.Employe;
 import models.Service;
 
@@ -20,10 +21,19 @@ public class ServiceMgr{
     
     EmployeDao daoEmp = new EmployeDao();
     ServiceDao daoServ = new ServiceDao();
+    Alert a = new Alert(Alert.AlertType.INFORMATION,"Le libbelle doit être unique");
+
     
-    
-    public Service ajouterServiec(Service obj) {
-        return daoServ.save(obj);
+    public Service ajouterServiec(Service serv) {
+        for(Service service : this.listerServiec()){
+            System.out.print("jjjjjjjjjjjjj");
+            if(service.getLibelle().compareTo(serv.getLibelle())==0){
+                a.showAndWait();
+                return null;
+            }
+                
+        }
+        return daoServ.save(serv);
     }
 
     public List<Service> listerServiec() {

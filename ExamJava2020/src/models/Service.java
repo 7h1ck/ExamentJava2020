@@ -18,7 +18,7 @@ import models.IEmploye;
  * @author DELL
  */
 
-public class Service implements IEmploye {
+public class Service implements IEmploye<Service> {
 
     private int id;
     private String libelle;
@@ -33,8 +33,8 @@ public class Service implements IEmploye {
     }
 
     @Override
-    public boolean compare() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean compare(Service serv) {
+        return equals(serv);
     }
 
     @Override
@@ -65,27 +65,36 @@ public class Service implements IEmploye {
 
     @Override
     public int hashCode() {
-       int hash = 1;
-       hash = 31 * hash + (libelle == null ? 0 : libelle.hashCode());
-       return hash;
-   }
-
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode(this.libelle);
+        return hash;
+    }
 
     @Override
-     public boolean equals(Object obj) {
-     
-       if (this == obj)
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Service other = (Service) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.libelle, other.libelle)) {
+            return false;
+        }
         return true;
-     if (obj == null)
-        return false;
-     if (getClass() != obj.getClass())
-        return false;
-       Service other = (Service) obj;
-       if (this.id!=other.getId())
-        return false;
-      if (this.libelle.compareToIgnoreCase(other.getLibelle())!=0)
-        return false;
-     return true;
+    }
+
+    
+
+
+    
      
    }
 
@@ -94,4 +103,3 @@ public class Service implements IEmploye {
 
     
     
-}

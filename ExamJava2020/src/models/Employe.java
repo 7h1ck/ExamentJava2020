@@ -7,13 +7,14 @@ package models;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import models.IEmploye;
 
 /**
  *
  * @author DELL
  */
-public class Employe implements IEmploye{
+public class Employe implements IEmploye<Employe>{
     
     private int id;
     private String fullName;
@@ -32,8 +33,8 @@ public class Employe implements IEmploye{
     }
 
     @Override
-    public boolean compare() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean compare(Employe emp) {
+        return equals(emp);
     }
 
     @Override
@@ -76,6 +77,31 @@ public class Employe implements IEmploye{
     @Override
     public String toString() {
         return "Employe{" + "id=" + id + ", fullName=" + fullName + ", dateEmbauche=" + dateEmbauche + ", idService=" + idService + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.fullName);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Employe other = (Employe) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
     }
     
     

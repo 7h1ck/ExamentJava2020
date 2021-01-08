@@ -82,7 +82,9 @@ public class ServiceController implements Initializable{
 
     @FXML
     private void handleAddService(ActionEvent event) {
-        this.services.add(this.servMgr.ajouterServiec(new Service(this.fieldService.getText())));
+        Service ser = this.servMgr.ajouterServiec(new Service(this.fieldService.getText()));
+        if(ser!=null)
+        this.services.add(ser);
 
     }
 

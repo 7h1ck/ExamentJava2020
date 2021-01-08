@@ -9,7 +9,7 @@ package models;
  *
  * @author DELL
  */
-public interface IEmploye {
-    boolean compare();
+public interface IEmploye<T> {
+    boolean compare(T obj);
     String affiche();
 }
