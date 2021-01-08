@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="mainContainer" prefHeight="747.0" prefWidth="1111.0" styleClass="mainContainer" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddEmployeController">
+   <children>
+      <Text fill="#092835" layoutX="405.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Création d'emloye" textAlignment="CENTER" wrappingWidth="301.13671875">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Label layoutX="84.0" layoutY="121.0" text="Service" />
+      <Label layoutX="35.0" layoutY="183.0" text="Prénom et nom" />
+      <TextField fx:id="fieldFullName" layoutX="165.0" layoutY="175.0" prefHeight="33.0" prefWidth="382.0" styleClass="field" />
+      <JFXComboBox fx:id="cmbService" layoutX="165.0" layoutY="117.0" onAction="#handleServiceChanged" prefHeight="25.0" prefWidth="382.0" styleClass="field" />
+      <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" layoutX="918.0" layoutY="648.0" onAction="#handleSave" prefHeight="61.0" prefWidth="155.0" style="-fx-background-color: #FF6633;" text="Enregistrer" textFill="#092835">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <FontAwesomeIconView fill="#092835" glyphName="SAVE" size="25" />
+         </graphic>
+      </JFXButton>
+      <Label layoutX="22.0" layoutY="246.0" text="Anné d'embauche" />
+      <DatePicker fx:id="fieldDate" layoutX="165.0" layoutY="242.0" prefHeight="25.0" prefWidth="376.0" />
+   </children>
+</AnchorPane>

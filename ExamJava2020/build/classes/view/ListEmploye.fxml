@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="mainContainer" prefHeight="747.0" prefWidth="1111.0" styleClass="mainContainer" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ListeEmployeController">
+   <children>
+      <Text fill="#092835" layoutX="405.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lister employes par service" textAlignment="CENTER" wrappingWidth="301.13671875">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Label layoutX="324.0" layoutY="132.0" text="Service" />
+      <JFXComboBox fx:id="cmbService" layoutX="405.0" layoutY="128.0" onAction="#handleServiceChanged" prefHeight="25.0" prefWidth="382.0" styleClass="field" />
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="823.0" layoutY="162.0" onAction="#handleListRetraités" prefHeight="61.0" prefWidth="274.0" style="-fx-background-color: #FF6633;" text="Lister les retraités de cette année" textFill="#092835">
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="tabEmp" layoutX="209.0" layoutY="228.0" prefHeight="482.0" prefWidth="694.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="120.0" text="id" />
+          <TableColumn fx:id="colFName" prefWidth="360.0" text="Prénom et nom" />
+            <TableColumn fx:id="colDate" prefWidth="212.0" text="Date d'embauche" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
